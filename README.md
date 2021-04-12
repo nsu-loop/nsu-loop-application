@@ -1,1 +1,0 @@
-"nsu-loop-application" 
