@@ -46,12 +46,30 @@ def signup(request):
         else: messages.error(request, "There is no user exist with those credetials")
     return redirect('/') 
 
+
 def user_login(request):
+ 
+    if request.method=='POST':
+        username = request.POST.get('username', '')
+        password = request.POST.get('password', '')
+
+       # if user account exist or not
+
+        user  = authenticate(username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            
+            return HttpResponse("Logged in")
+        else:
+           return HttpResponse("Invalid credentials")   
+
+    else:
         return render(request, 'account/login.html')
 
 
 def user_logout(request):
-    logout(request)
+    user_logout(request)
     messages.success(request, "logged out")
     return redirect("/")
 
