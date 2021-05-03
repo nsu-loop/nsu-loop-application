@@ -1,8 +1,8 @@
 from django.db import models
 from django.core.validators import FileExtensionValidator
 from profiles.models import Profile
-# Create your models here.
 
+# Create your models here.
 class Post(models.Model):
     """
     This class contains the essential fields and behaviors of the data you’re storing. 
