@@ -1,0 +1,6 @@
+Views
+======
+
+.. automodule:: account.views
+   :members:
+   :undoc-members:
