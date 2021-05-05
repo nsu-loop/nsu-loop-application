@@ -4,6 +4,7 @@
 {% url 'profiles:my-invites-view' as path_to_my_invites %}
 {% url 'profiles:invite-profiles-view' as path_to_invites %}
 {% url 'profiles:all-profiles-view' as path_to_all_profiles %}
+{% url 'jackpots:make-jackpot' as path_to_make_jackpot %}
 
 <div class="ui inverted menu nav mb-7">
     <div class="ui container">
@@ -28,7 +29,7 @@
                     </div>
                  </div>
             </div>
-                
+
             <a href="{{path_to_my_profile}}" class="{% if request.path == path_to_my_profile %}active{% endif %} item">
                 <img src={{picture.url}} class="ui avatar image">&nbsp;
                 {{ request.user }}
@@ -45,6 +46,8 @@
             <a href="" class="ui item">
                 Make Payment
             </a>
+            
+            <a href="{{path_to_make_jackpot}}" class="{% if request.path == path_to_make_jackpot %}active{% endif %} item">Jackpot</a>
 
             <a href="" class="ui item">
                 Logout

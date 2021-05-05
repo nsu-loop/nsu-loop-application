@@ -28,6 +28,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_view, name='home-view'),
     path('posts/', include('posts.urls', namespace='posts')),
+    path('jackpots/', include('jackpot.urls', namespace='jackpots')),
 ]
 
 
