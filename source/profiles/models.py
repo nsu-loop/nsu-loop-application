@@ -8,6 +8,10 @@ from .utils import get_random_code
 
 
 class Profile(models.Model):
+    """
+    This class contains the fields and behaviour of the profile data type.
+    It represents the database table fields.
+    """
     first_name = models.CharField(max_length=200, blank=True)
     last_name = models.CharField(max_length=200, blank=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -26,6 +30,13 @@ class Profile(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
+        """
+        This method will return username and created time.
+
+        :param name: self - access the attributes
+        :param type: reference
+        :return: str
+        """
         return f"{self.user.username}-{self.created.strftime('%d-%m-%Y')}"
 
     def get_absolute_url(self):
