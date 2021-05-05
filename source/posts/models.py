@@ -35,7 +35,7 @@ class Post(models.Model):
 		:param type: reference
 		:return: str
 		"""
-        return self.liked.all().count()
+        return self.liked.all().count() 
 
     def num_comments(self):
         """
