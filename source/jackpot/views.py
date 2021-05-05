@@ -23,13 +23,11 @@ def confirm_jackpot(request):
     :return: returns posts page
     """
 
-    # getting form value
-    lucky_id = request.GET.get("lucky_id")
+    lucky_id = request.GET.get("lucky_id") # getting form value
 
     context = {'confirm': False}
 
-    # confirm jackpot
-    jackpot = Jackpot.objects.filter(lucky_id=lucky_id, verified=False)
+    jackpot = Jackpot.objects.filter(lucky_id=lucky_id, verified=False) # confirm jackpot
     if len(jackpot) > 0:
         jackpot = jackpot[0]
         jackpot.verified = True

@@ -47,8 +47,12 @@ class Post(models.Model):
 		"""
         return self.comment_set.all().count()
 
-    class Meta:
-        ordering = ('-created',)
+class Meta:
+    """
+    This class will update the value position in database when new item is added in the databse. 
+
+    """
+    ordering = ('-created',)
 
 class Comment(models.Model):
     """
