@@ -1,12 +1,15 @@
 from django.contrib.auth.models import User
 from django.test.client import Client
-import unittest,pytest
+import pytest
+from django.test import TestCase
 from django.urls import reverse
-import collections
+
+
+
 
 
 @pytest.mark.django_db
-class LoginTestCase(unittest.TestCase):
+class LoginTestCase(TestCase):
    
     """
     This class is for our unit testing. It will test our login feature.
