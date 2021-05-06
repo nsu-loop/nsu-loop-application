@@ -40,4 +40,72 @@ class Profile(models.Model):
         return f"{self.user.username}-{self.created.strftime('%d-%m-%Y')}"
 
     def get_absolute_url(self):
+        """
+        This method will return the absolute url of profile view.
+
+        :param name: self - access the attributes
+        :param type: reference
+        :return: view
+        """
         return reverse("profiles:profile-detail-view", kwargs={"slug": self.slug})
+
+    initial_first_name = None
+    initial_last_name = None
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.initial_first_name = self.first_name
+        self.initial_last_name = self.last_name
+
+    def save(self, *args, **kwargs):
+        """
+        This method will save the user profile details.
+
+        :param name: self - access the attributes
+        :param type: reference
+        :param name: *args - pass number of arguments to a function
+        :param type: variable
+        :param name: **kwargs - pass key-value parameters to the function
+        :param type: variable
+        :return: Boolean
+        """
+        ex = False
+        to_slug = self.slug
+        if self.first_name != self.initial_first_name or self.last_name != self.initial_last_name or self.slug == "":
+            if self.first_name and self.last_name:
+                to_slug = slugify(str(self.first_name) + " " + str(self.last_name))
+                ex = Profile.objects.filter(slug=to_slug).exists()
+                while ex:
+                    to_slug = slugify(to_slug + " " + str(get_random_code()))
+                    ex = Profile.objects.filter(slug=to_slug).exists()
+            else:
+                to_slug = str(self.user)
+        self.slug = to_slug
+        super().save(*args, **kwargs)
+
+    # def get_friends(self):
+    #    return self.friends.all()
+
+    # def get_friends_no(self):
+    #  return self.friends.all().count()
+
+    # def get_posts_no(self):
+    #    return self.posts.all().count()
+
+    # def get_all_authors_posts(self):
+    #   return self.posts.all()
+
+    # def get_likes_given_no(self):
+    #  likes = self.like_set.all()
+    # total_liked = 0
+    # for item in likes:
+    #    if item.value=='Like':
+    #       total_liked += 1
+    # return total_liked
+
+    # def get_likes_recieved_no(self):
+    #    posts = self.posts.all()
+    #   total_liked = 0
+    #  for item in posts:
+    #     total_liked += item.liked.all().count()
+    # return total_liked
