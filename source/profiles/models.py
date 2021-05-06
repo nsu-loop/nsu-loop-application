@@ -109,3 +109,21 @@ class Profile(models.Model):
     #  for item in posts:
     #     total_liked += item.liked.all().count()
     # return total_liked
+
+
+class Skill(models.Model):
+    """
+    This class contains the fields and behaviour of the skill data type.
+    It represents the database table fields.
+    """
+    name = models.CharField(max_length=15)
+
+    def __str__(self):
+        """
+        This method will return skill name.
+
+        :param name: self - access the attributes
+        :param type: reference
+        :return: str
+        """
+        return f"{self.name}"
