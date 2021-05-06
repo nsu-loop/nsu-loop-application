@@ -19,13 +19,13 @@ class Profile(models.Model):
 
     def __str__(self):
         """
-		This method will return user's username and creation time.
+	This method will return user's username and creation time.
 
-		:param name: self - used to access the attributes and methods of the class in python
-		:param type: reference
-		:return: str
+	:param name: self - used to access the attributes and methods of the class in python
+	:param type: reference
+	:return: str
         
-		"""
+	"""
         return f"{self.user.username}-{self.created.strftime('%d-%m-%Y')}"
 
 
