@@ -157,14 +157,12 @@
 <span class="sd">       </span>
 <span class="sd">        :param name: self - used to access the attributes and methods of the class in python</span>
 <span class="sd">        :param type: reference</span>
-<span class="sd">        :return: str</span>
 <span class="sd">        :param name: *args - used to pass an arbitrary number of arguments to a function</span>
 <span class="sd">        :param type: pass variable</span>
-<span class="sd">        :return: returns variable number</span>
 <span class="sd">        :param name: **kwargs - used to pass key-value parameters to the function</span>
 <span class="sd">        :param type: pass variable</span>
-<span class="sd">        :return: returns key-value parameters</span>
-
+<span class="sd">        :return: str</span>
+<span class="sd">      </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">pk</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;pk&#39;</span><span class="p">)</span>
         <span class="n">obj</span> <span class="o">=</span> <span class="n">Post</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">pk</span><span class="p">)</span>
@@ -195,11 +193,10 @@
 <span class="sd">       </span>
 <span class="sd">        :param name: self - used to access the attributes and methods of the class in python</span>
 <span class="sd">        :param type: reference</span>
-<span class="sd">        :return: str</span>
 <span class="sd">        :param name: form - used to take a form</span>
 <span class="sd">        :param type: take form</span>
-<span class="sd">        :return: returns the form</span>
-<span class="sd">        </span>
+<span class="sd">        :return: str</span>
+<span class="sd">  </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">profile</span> <span class="o">=</span> <span class="n">Profile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">instance</span><span class="o">.</span><span class="n">author</span> <span class="o">==</span> <span class="n">profile</span><span class="p">:</span>

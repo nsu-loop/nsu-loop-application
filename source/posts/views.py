@@ -124,14 +124,12 @@ class PostDeleteView(DeleteView):
        
         :param name: self - used to access the attributes and methods of the class in python
         :param type: reference
-        :return: str
         :param name: *args - used to pass an arbitrary number of arguments to a function
         :param type: pass variable
-        :return: returns variable number
         :param name: **kwargs - used to pass key-value parameters to the function
         :param type: pass variable
-        :return: returns key-value parameters
-
+        :return: str
+      
         """
         pk = self.kwargs.get('pk')
         obj = Post.objects.get(pk=pk)
@@ -162,11 +160,10 @@ class PostUpdateView(UpdateView):
        
         :param name: self - used to access the attributes and methods of the class in python
         :param type: reference
-        :return: str
         :param name: form - used to take a form
         :param type: take form
-        :return: returns the form
-        
+        :return: str
+  
         """
         profile = Profile.objects.get(user=self.request.user)
         if form.instance.author == profile:
