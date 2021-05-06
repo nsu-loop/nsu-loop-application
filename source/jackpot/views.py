@@ -9,7 +9,8 @@ def make_jackpot(request):
     :param name: request - used to generate responses(Http) depending on the request that it receives
     :param type: HttpResponse
     :return: returns posts page
-    """
+    
+    """ 
     return render(request, 'jackpots/make_jackpot.html')
 
 # view function for confirming jackpot
@@ -21,8 +22,8 @@ def confirm_jackpot(request):
     :param name: request - used to generate responses(Http) depending on the request that it receives
     :param type: HttpResponse
     :return: returns posts page
-    """
-
+    
+    """ 
     lucky_id = request.GET.get("lucky_id") # getting form value
 
     context = {'confirm': False}

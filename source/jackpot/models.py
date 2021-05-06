@@ -7,16 +7,18 @@ class Jackpot(models.Model):
 	Each model maps to a single database table.
     
     This class is used to create a database table containg those attributes.
-    """
+   
+    """ 
     lucky_id = models.CharField(max_length=3)
     verified = models.BooleanField(default=False)
 
     def __str__(self):
         """
-		This method return the lucky pick id.
+    	This method return the lucky pick id.
 
 		:param name: self - used to access the attributes and methods of the class in python
 		:param type: reference
 		:return: str
-		"""
+    
+        """ 
         return f"{self.lucky_id}"

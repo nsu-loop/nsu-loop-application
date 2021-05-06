@@ -10,6 +10,7 @@ class Profile(models.Model):
     Each model maps to a single database table.
     
     This class is used to create a database table containg those attributes.
+
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     avatar = models.ImageField(default='avatar.png', upload_to='avatars/')
@@ -23,6 +24,7 @@ class Profile(models.Model):
 		:param name: self - used to access the attributes and methods of the class in python
 		:param type: reference
 		:return: str
+        
 		"""
         return f"{self.user.username}-{self.created.strftime('%d-%m-%Y')}"
 

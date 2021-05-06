@@ -9,6 +9,7 @@ class Post(models.Model):
 	Each model maps to a single database table.
     
     This class is used to create a database table containg those attributes.
+    
     """
     content = models.TextField()
     image = models.ImageField(upload_to='posts', validators=[FileExtensionValidator(['png', 'jpg', 'jpeg'])], blank=True)
@@ -24,6 +25,7 @@ class Post(models.Model):
 		:param name: self - used to access the attributes and methods of the class in python
 		:param type: reference
 		:return: str
+
 		"""
         return str(self.content[:20])
 
@@ -34,6 +36,7 @@ class Post(models.Model):
 		:param name: self - used to access the attributes and methods of the class in python
 		:param type: reference
 		:return: str
+
 		"""
         return self.liked.all().count() 
 
@@ -44,15 +47,16 @@ class Post(models.Model):
 		:param name: self - used to access the attributes and methods of the class in python
 		:param type: reference
 		:return: str
+
 		"""
         return self.comment_set.all().count()
 
-class Meta:
-    """
-    This class will update the value position in database when new item is added in the databse. 
+    class Meta:
+        """
+        This class will update the value position in database when new item is added in the databse. 
 
-    """
-    ordering = ('-created',)
+        """
+        ordering = ('-created',)
 
 class Comment(models.Model):
     """
@@ -60,6 +64,7 @@ class Comment(models.Model):
 	Each model maps to a single database table.
     
     This class is used to create a database table containg those attributes.
+
     """
     user = models.ForeignKey(Profile, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
@@ -74,6 +79,7 @@ class Comment(models.Model):
 		:param name: self - used to access the attributes and methods of the class in python
 		:param type: reference
 		:return: str
+
 		"""
         return str(self.pk)
 
@@ -88,6 +94,7 @@ class Like(models.Model):
     Each model maps to a single database table.
     
     This class is used to create a database table containg those attributes.
+
     """
     user = models.ForeignKey(Profile, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
@@ -102,5 +109,6 @@ class Like(models.Model):
 		:param name: self - used to access the attributes and methods of the class in python
 		:param type: reference
 		:return: str
+
 		"""
         return f"{self.user}-{self.post}-{self.value}"

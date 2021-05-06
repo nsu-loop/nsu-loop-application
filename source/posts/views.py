@@ -19,6 +19,7 @@ def post_comment_create_and_list_view(request):
     :param name: request - used to generate responses(Http) depending on the request that it receives
     :param type: HttpResponse
     :return: returns posts page
+
     """
     qs = Post.objects.all()
     profile = Profile.objects.get(user=request.user)
@@ -72,6 +73,7 @@ def like_unlike_post(request):
     :param name: request - used to generate responses(Http) depending on the request that it receives
     :param type: HttpResponse
     :return: redirect the posts page
+
     """
     user = request.user
     if request.method == 'POST':
@@ -129,6 +131,7 @@ class PostDeleteView(DeleteView):
         :param name: **kwargs - used to pass key-value parameters to the function
         :param type: pass variable
         :return: returns key-value parameters
+
         """
         pk = self.kwargs.get('pk')
         obj = Post.objects.get(pk=pk)
@@ -163,6 +166,7 @@ class PostUpdateView(UpdateView):
         :param name: form - used to take a form
         :param type: take form
         :return: returns the form
+        
         """
         profile = Profile.objects.get(user=self.request.user)
         if form.instance.author == profile:

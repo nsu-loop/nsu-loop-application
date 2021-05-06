@@ -5,5 +5,5 @@ class JackpotConfig(AppConfig):
     """
     This class contains the app jackpot.
     
-    """
+    """ 
     name = 'jackpot'
