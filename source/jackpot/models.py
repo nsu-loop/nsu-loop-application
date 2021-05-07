@@ -16,9 +16,9 @@ class Jackpot(models.Model):
     """
     This method return the lucky pick id.
 
-	:param name: self - used to access the attributes and methods of the class in python
-	:param type: reference
-	:return: str
+    :param name: self - used to access the attributes and methods of the class in python
+    :param type: reference
+    :return: str
     
     """ 
     return f"{self.lucky_id}"
