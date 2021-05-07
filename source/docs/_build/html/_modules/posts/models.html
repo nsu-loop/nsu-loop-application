@@ -39,7 +39,7 @@
 <div class="viewcode-block" id="Post"><a class="viewcode-back" href="../../posts.html#posts.forms.Post">[docs]</a><span class="k">class</span> <span class="nc">Post</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This class contains the essential fields and behaviors of the data you’re storing. </span>
-<span class="sd">	Each model maps to a single database table.</span>
+<span class="sd">    Each model maps to a single database table.</span>
 <span class="sd">    </span>
 <span class="sd">    This class is used to create a database table containg those attributes.</span>
 <span class="sd">    </span>
@@ -53,35 +53,35 @@
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">		This method return the post content size as 20.</span>
+<span class="sd">	This method return the post content size as 20.</span>
 
-<span class="sd">		:param name: self - used to access the attributes and methods of the class in python</span>
-<span class="sd">		:param type: reference</span>
-<span class="sd">		:return: str</span>
+<span class="sd">	:param name: self - used to access the attributes and methods of the class in python</span>
+<span class="sd">	:param type: reference</span>
+<span class="sd">	:return: str</span>
 
-<span class="sd">		&quot;&quot;&quot;</span>
+<span class="sd">	&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="p">[:</span><span class="mi">20</span><span class="p">])</span>
 
 <div class="viewcode-block" id="Post.num_likes"><a class="viewcode-back" href="../../posts.html#posts.forms.Post.num_likes">[docs]</a>    <span class="k">def</span> <span class="nf">num_likes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">		This method will return the number of likes received in a post.</span>
+<span class="sd">	This method will return the number of likes received in a post.</span>
 
-<span class="sd">		:param name: self - used to access the attributes and methods of the class in python</span>
-<span class="sd">		:param type: reference</span>
-<span class="sd">		:return: str</span>
+<span class="sd">	:param name: self - used to access the attributes and methods of the class in python</span>
+<span class="sd">	:param type: reference</span>
+<span class="sd">	:return: str</span>
 
-<span class="sd">		&quot;&quot;&quot;</span>
+<span class="sd">	&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">liked</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> </div>
 
 <div class="viewcode-block" id="Post.num_comments"><a class="viewcode-back" href="../../posts.html#posts.forms.Post.num_comments">[docs]</a>    <span class="k">def</span> <span class="nf">num_comments</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">		This method will return the number of comments received in a post.</span>
+<span class="sd">	This method will return the number of comments received in a post.</span>
 
-<span class="sd">		:param name: self - used to access the attributes and methods of the class in python</span>
-<span class="sd">		:param type: reference</span>
-<span class="sd">		:return: str</span>
+<span class="sd">	:param name: self - used to access the attributes and methods of the class in python</span>
+<span class="sd">	:param type: reference</span>
+<span class="sd">	:return: str</span>
 
-<span class="sd">		&quot;&quot;&quot;</span>
+<span class="sd">	&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">comment_set</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">count</span><span class="p">()</span></div>
 
     <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
@@ -94,7 +94,7 @@
 <div class="viewcode-block" id="Comment"><a class="viewcode-back" href="../../posts.html#posts.forms.Comment">[docs]</a><span class="k">class</span> <span class="nc">Comment</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This class contains the essential fields and behaviors of the data you’re storing. </span>
-<span class="sd">	Each model maps to a single database table.</span>
+<span class="sd">    Each model maps to a single database table.</span>
 <span class="sd">    </span>
 <span class="sd">    This class is used to create a database table containg those attributes.</span>
 
@@ -107,13 +107,13 @@
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">		This method will return the comment primary key to make a relation with post object.</span>
+<span class="sd">	This method will return the comment primary key to make a relation with post object.</span>
 
-<span class="sd">		:param name: self - used to access the attributes and methods of the class in python</span>
-<span class="sd">		:param type: reference</span>
-<span class="sd">		:return: str</span>
+<span class="sd">	:param name: self - used to access the attributes and methods of the class in python</span>
+<span class="sd">	:param type: reference</span>
+<span class="sd">	:return: str</span>
 
-<span class="sd">		&quot;&quot;&quot;</span>
+<span class="sd">	&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pk</span><span class="p">)</span></div>
 
 <span class="n">LIKE_CHOICES</span> <span class="o">=</span> <span class="p">(</span>
@@ -137,13 +137,13 @@
     
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">		This method will return user, post and like choices.</span>
+<span class="sd">	This method will return user, post and like choices.</span>
 
-<span class="sd">		:param name: self - used to access the attributes and methods of the class in python</span>
-<span class="sd">		:param type: reference</span>
-<span class="sd">		:return: str</span>
+<span class="sd">	:param name: self - used to access the attributes and methods of the class in python</span>
+<span class="sd">	:param type: reference</span>
+<span class="sd">	:return: str</span>
 
-<span class="sd">		&quot;&quot;&quot;</span>
+<span class="sd">	&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">post</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span></div>
 </pre></div>
 

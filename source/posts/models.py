@@ -20,35 +20,35 @@ class Post(models.Model):
 
     def __str__(self):
         """
-	This method return the post content size as 20.
+        This method return the post content size as 20.
 
-	:param name: self - used to access the attributes and methods of the class in python
-	:param type: reference
-	:return: str
+        :param name: self - used to access the attributes and methods of the class in python
+        :param type: reference
+        :return: str
 
-	"""
+        """
         return str(self.content[:20])
 
     def num_likes(self):
         """
-	This method will return the number of likes received in a post.
+        This method will return the number of likes received in a post.
 
-	:param name: self - used to access the attributes and methods of the class in python
-	:param type: reference
-	:return: str
+        :param name: self - used to access the attributes and methods of the class in python
+        :param type: reference
+        :return: str
 
-	"""
+        """
         return self.liked.all().count() 
 
     def num_comments(self):
         """
-	This method will return the number of comments received in a post.
+        This method will return the number of comments received in a post.
 
-	:param name: self - used to access the attributes and methods of the class in python
-	:param type: reference
-	:return: str
+        :param name: self - used to access the attributes and methods of the class in python
+        :param type: reference
+        :return: str
 
-	"""
+        """
         return self.comment_set.all().count()
 
     class Meta:
@@ -74,13 +74,13 @@ class Comment(models.Model):
 
     def __str__(self):
         """
-	This method will return the comment primary key to make a relation with post object.
+        This method will return the comment primary key to make a relation with post object.
 
-	:param name: self - used to access the attributes and methods of the class in python
-	:param type: reference
-	:return: str
+        :param name: self - used to access the attributes and methods of the class in python
+        :param type: reference
+        :return: str
 
-	"""
+        """
         return str(self.pk)
 
 LIKE_CHOICES = (
@@ -104,11 +104,11 @@ class Like(models.Model):
     
     def __str__(self):
         """
-	This method will return user, post and like choices.
+        This method will return user, post and like choices.
 
-	:param name: self - used to access the attributes and methods of the class in python
-	:param type: reference
-	:return: str
+        :param name: self - used to access the attributes and methods of the class in python
+        :param type: reference
+        :return: str
 
-	"""
+        """
         return f"{self.user}-{self.post}-{self.value}"
