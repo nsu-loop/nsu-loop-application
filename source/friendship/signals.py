@@ -5,9 +5,9 @@ from .models import Profile, Relationship
 
 @receiver(post_save, sender=User)
 '''
- this method will create a user profile
- :param name: post_save - used to send signals to profile model to create a profile
- :return: object
+this method will create a user profile
+:param name: post_save - used to send signals to profile model to create a profile
+:return: object
  '''
 def post_save_create_profile(sender, instance, created, **kwargs):
     ''' this method will create a user profile
