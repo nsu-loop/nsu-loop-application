@@ -1,0 +1,9 @@
+{% extends 'base.html' %} {% block title %} Find {% endblock title %} 
+{% block content %}
+
+<div>
+  <h2><a href="{% url 'profiles:search-post' %}" class="ui" >Search Post</a></h2>
+  <h2><a href="{% url 'profiles:search-friends' %}" class="ui">Search Friends</a></h2> 
+</div>
+
+{% endblock content %}
