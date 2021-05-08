@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('payments/', include('payment.urls', namespace='payments')),
     path('finds/', include('find.urls', namespace='finds')),
+    path('profiles/', include('profiles.urls', namespace='profiles')),
 ]
