@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}main page{% endblock title %}
+
+{% block content %}
+<div class="ui grid">
+    <div class="eleven wide column">
+        <h1>Available Users for chat.</h1>
+
+        {% for obj in users %}
+            <p><a href={{obj.id}}>{{ obj.username }}</a></p>
+            <br>
+        {% endfor %}
+    </div>
+
+
+
+</div>
+
+
+{% endblock content %}

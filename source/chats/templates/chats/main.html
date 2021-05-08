@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}main page{% endblock title %}
+
+{% block content %}
+<div class="ui grid">
+    <div class="eleven wide column">
+        <h1>Chat history with <b>{{ to_user.username }}</b></h1>
+
+        {% for obj in chats %}
+            <p>
+                {{ obj.from_user }} --> {{ obj.to_user }} --> {{ obj.message }}
+            </p>
+            <br>
+        {% endfor %}
+    </div>
+
+
+
+</div>
+<div>
+
+    <form action="" method="POST" class='ui fluid form'>
+        {% csrf_token %}
+        {{ chat_form }}
+        <button type="submit" name="submit_chat_form" class="ui primary button mt-5 w-full">Send</button>
+    </form>
+
+</div>
+
+{% endblock content %}

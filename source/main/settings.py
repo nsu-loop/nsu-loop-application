@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'find'
     'profiles'
     'friendship',
+
     'account.apps.AccountConfig',
 ]
 
