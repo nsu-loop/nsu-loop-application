@@ -2,10 +2,6 @@ from .models import Profile, Relationship
 
 
 
-    '''
-    This method will pass the avatar of requested user profile.
-
-    '''
 
 
 
@@ -15,7 +11,7 @@ def profile_pic(request):
 
     '''
     This method will pass the avatar of requested user profile.
-     :param name: request - it generates the response(HTTP)
+    :param name: request - it generates the response(HTTP)
     :param type: HttpResponse
     :return: returns an object
 
