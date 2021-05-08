@@ -21,4 +21,5 @@ urlpatterns = [
     path('payments/', include('payment.urls', namespace='payments')),
     path('finds/', include('find.urls', namespace='finds')),
     path('profiles/', include('profiles.urls', namespace='profiles')),
+    path('friendship/', friendship.urls, name="friendship"),
 ]

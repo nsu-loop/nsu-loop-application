@@ -7,10 +7,11 @@ For more information on this file, see
 https://docs.djangoproject.com/en/3.2/howto/deployment/asgi/
 """
 
-import os
+from django.apps import AppConfig
 
-from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'main.settings')
+class ProfilesConfig(AppConfig):
+    name = 'friendship'
 
-application = get_asgi_application()
+    def ready(self):
+        import friendship.signals
