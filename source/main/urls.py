@@ -34,6 +34,7 @@ urlpatterns = [
     path('', home_view, name='home-view'),
     path('posts/', include('posts.urls', namespace='posts')),
     path('jackpots/', include('jackpot.urls', namespace='jackpots')),
+    path('', include('account.urls'), name='account_app'),
 ]
 
 
