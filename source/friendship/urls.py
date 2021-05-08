@@ -10,7 +10,7 @@ from .views import (
     reject_invatation,
 )
 
-app_name = 'profiles'
+  app_name = 'profiles'
 
 urlpatterns = [
     path('', ProfileListView.as_view(), name='all-profiles-view'),
