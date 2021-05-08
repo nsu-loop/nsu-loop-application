@@ -13,12 +13,12 @@ class Jackpot(models.Model):
     verified = models.BooleanField(default=False)
 
     def __str__(self):
-    """
-    This method return the lucky pick id.
+        """
+        This method return the lucky pick id.
 
-    :param name: self - used to access the attributes and methods of the class in python
-    :param type: reference
-    :return: str
-    
-    """ 
-    return f"{self.lucky_id}"
+        :param name: self - used to access the attributes and methods of the class in python
+        :param type: reference
+        :return: str
+        
+        """ 
+        return f"{self.lucky_id}"
