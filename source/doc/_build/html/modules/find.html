@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find &#8212; main v1 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="payment" href="payment.html" />
+    <link rel="prev" title="Welcome to main’s documentation!" href="../index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-find.views">
+<span id="find"></span><h1>Find<a class="headerlink" href="#module-find.views" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="find.views.find_view">
+<code class="sig-prename descclassname"><span class="pre">find.views.</span></code><code class="sig-name descname"><span class="pre">find_view</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/find/views.html#find_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#find.views.find_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method will render find page.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – request - used to generate responses(Http) depending on the request that it receives</p></li>
+<li><p><strong>type</strong> – HttpResponse</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>returns find page</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="find.views.friend_profile_view">
+<code class="sig-prename descclassname"><span class="pre">find.views.</span></code><code class="sig-name descname"><span class="pre">friend_profile_view</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">userId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/find/views.html#friend_profile_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#find.views.friend_profile_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method will display friend profile.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – request - used to generate responses(Http) depending on the request that it receives</p></li>
+<li><p><strong>type</strong> – HttpResponse</p></li>
+<li><p><strong>name</strong> – userId - used to take the user id</p></li>
+<li><p><strong>type</strong> – HttpResponse</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>returns myprofile page</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="find.views.search_friends">
+<code class="sig-prename descclassname"><span class="pre">find.views.</span></code><code class="sig-name descname"><span class="pre">search_friends</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/find/views.html#search_friends"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#find.views.search_friends" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method functionality is searching people.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – request - used to generate responses(Http) depending on the request that it receives</p></li>
+<li><p><strong>type</strong> – HttpResponse</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>returns search_friends page</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="find.views.search_post">
+<code class="sig-prename descclassname"><span class="pre">find.views.</span></code><code class="sig-name descname"><span class="pre">search_post</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/find/views.html#search_post"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#find.views.search_post" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method will render find post page.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – request - used to generate responses(Http) depending on the request that it receives</p></li>
+<li><p><strong>type</strong> – HttpResponse</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>returns find post page</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="find.views.talent_poll">
+<code class="sig-prename descclassname"><span class="pre">find.views.</span></code><code class="sig-name descname"><span class="pre">talent_poll</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/find/views.html#talent_poll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#find.views.talent_poll" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method functionality is talent poll rednering.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – request - used to generate responses(Http) depending on the request that it receives</p></li>
+<li><p><strong>type</strong> – HttpResponse</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>returns talent_poll page</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">main</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Find</a></li>
+<li class="toctree-l1"><a class="reference internal" href="payment.html">payment</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../index.html" title="previous chapter">Welcome to main’s documentation!</a></li>
+      <li>Next: <a href="payment.html" title="next chapter">payment</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, ahnaf.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/modules/find.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

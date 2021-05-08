@@ -10,6 +10,16 @@ import random
 
 # function for displaying friend profile
 def friend_profile_view(request, userId):
+    """
+    This method will display friend profile.
+
+    :param name: request - used to generate responses(Http) depending on the request that it receives
+    :param type: HttpResponse
+    :param name: userId - used to take the user id
+    :param type: HttpResponse
+    :return: returns myprofile page
+    
+    """
     profile = Profile.objects.get(pk=userId)
     context = {
         'profile': profile
@@ -19,10 +29,26 @@ def friend_profile_view(request, userId):
 
 # function for rendering  find page
 def find_view(request):
+    """
+    This method will render find page.
+
+    :param name: request - used to generate responses(Http) depending on the request that it receives
+    :param type: HttpResponse
+    :return: returns find page
+    
+    """
     return render(request, 'profiles/find.html')
 
 # function for rendering find post page
 def search_post(request):
+    """
+    This method will render find post page.
+
+    :param name: request - used to generate responses(Http) depending on the request that it receives
+    :param type: HttpResponse
+    :return: returns find post page
+    
+    """
     # getting search text from url
     search_text = request.GET.get('text', None)
     if search_text is None:
@@ -55,6 +81,14 @@ def search_post(request):
 
 # function for searching people
 def search_friends(request):
+    """
+    This method functionality is searching people.
+
+    :param name: request - used to generate responses(Http) depending on the request that it receives
+    :param type: HttpResponse
+    :return: returns search_friends page
+    
+    """
     # getting input values from request
     name = request.GET.get('name', "")
     email = request.GET.get('email', "")
@@ -109,6 +143,14 @@ def search_friends(request):
 
 # function for talent poll rednering
 def talent_poll(request):
+    """
+    This method functionality is talent poll rednering.
+
+    :param name: request - used to generate responses(Http) depending on the request that it receives
+    :param type: HttpResponse
+    :return: returns talent_poll page
+    
+    """
     # retrieving all skills and select one randomly
     skills = Skill.objects.all()
     skill_index = random.sample(range(0, len(skills)), 1)[0]
@@ -117,7 +159,7 @@ def talent_poll(request):
     friends = Profile.objects.all()
     # default choice is 5
     choice_number = 5
-    # but if total friend is less than 5, the choice number becomes total friend number
+    # but if total friend is less than 5, the choice number becomes total friend number.
     if len(friends) < 5:
         choice_number = len(friends)
     friend_indexes = random.sample(range(0, len(friends)), choice_number)

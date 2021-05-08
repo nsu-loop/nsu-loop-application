@@ -3,10 +3,26 @@ from django.shortcuts import render
 
 # view function for make payment page
 def make_payment(request):
+    """
+    This method functionality is conduct payment.
+
+    :param name: request - used to generate responses(Http) depending on the request that it receives
+    :param type: HttpResponse
+    :return: returns make_payment page
+    
+    """
     return render(request, 'payments/make_payment.html')
 
 # view function for confirming payment
 def confirm_payment(request):
+    """
+    This method functionality is confirming payment.
+
+    :param name: request - used to generate responses(Http) depending on the request that it receives
+    :param type: HttpResponse
+    :return: returns confirm_payment page
+    
+    """
     # getting form value
     phone = request.GET.get("phone")
     transaction_id = request.GET.get("transaction_id")
