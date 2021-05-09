@@ -4,20 +4,20 @@ from django.dispatch import receiver
 from .models import Profile, Relationship
 
 @receiver(post_save, sender=User)
-'''
-this method will create a user profile
-:param name: post_save - used to send signals to profile model to create a profile
-:return: object
- '''
+
 def post_save_create_profile(sender, instance, created, **kwargs):
-    ''' this method will create a user profile
+    ''' 
+    this method will help to  create a user profile with the help pf passing signals to
+    the models build in models.py page
     :param name: sender - The model class that just had an instance created
+    :param type: instance
     :param name: **kwargs -A dictionary of keyword arguments passed to __init__()
     :param type: variable
     :param name: created -A boolean; True if a new record was created.
     :param type: boolean
     :return: boolean
-     '''
+
+    '''
     
     if created:
         Profile.objects.create(user=instance)
@@ -27,9 +27,10 @@ def post_save_create_profile(sender, instance, created, **kwargs):
 
 @receiver(post_save, sender=Relationship)
 def post_save_add_to_friends(sender, instance, created, **kwargs):
+
     '''
     this mehod will add two user in a relationship and will set up the conection between them
-    with the help of signals i.e if an invitatio is accepted them both 
+    with the help of signals i.e if an invitation is accepted then both 
     users prfile will be added to each and friend count will be updated 
      
     :param name: sender - The model class that just had an instance created
@@ -55,17 +56,16 @@ def post_save_add_to_friends(sender, instance, created, **kwargs):
 def pre_delete_remove_from_friends(sender, instance, **kwargs):
 
     '''
-     this mehod will remove  two user in a relationship and will break  the conection between them
+    this mehod will remove  two user in a relationship and will break  the conection between them
     with the help of signals i.e if an invitation is rejected or a friend is unfriended them both 
-    users prfile will be updated to each and friend count will decrease . 
+    users profile will be updated to each and friend count will decrease . 
      
     :param name: sender - The model class that just had an instance created
-
+    :param type: reference
     :param name: **kwargs -A dictionary of keyword arguments passed to __init__()
     :param type: variable
     :param name: created -A boolean; True if a new record was created
     :param type: variable 
-   
 
     :return: boolean
 

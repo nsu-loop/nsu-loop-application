@@ -40,8 +40,4 @@ class Chat(models.Model):
         ordering = ["id"]
 
 
-"""
-urls
-settings -> installed apps
 
-"""

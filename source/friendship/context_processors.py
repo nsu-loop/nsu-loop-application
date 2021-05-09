@@ -10,10 +10,11 @@ from .models import Profile, Relationship
 def profile_pic(request):
 
     '''
-    This method will pass the avatar of requested user profile.
+    This method will pass the avatar of requested user profile
+    after authenticating the user .
     :param name: request - it generates the response(HTTP)
     :param type: HttpResponse
-    :return: returns an object
+    :return: returns a response
 
     '''
     if request.user.is_authenticated:
@@ -27,10 +28,11 @@ def profile_pic(request):
 def invatations_received_no(request):
 
     '''
-    This method will count the number of invitation received.
+    This method will count the number of invitation received after
+    authenticating the user request  
     :param name: request - it generates the response(HTTP)
     :param type: HttpResponse
-    :return: returns a number
+    :return: int
 
     '''
     if request.user.is_authenticated:
