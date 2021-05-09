@@ -11,6 +11,9 @@ from django.views.generic import ListView, DetailView
 from .forms import ProfileModelForm
 from .models import Profile, Skill
 
+# This number of friends will show in talent poll for selecting friend
+DEFAULT_FRIEND_NUMBER = 5
+
 
 # function for displaying my profile
 @login_required
@@ -79,10 +82,10 @@ def talent_poll(request):
 
     # retrieving all profiles and select 5 randomly
     friends = Profile.objects.all()
-    # default choice is 5
-    choice_number = 5
+    # default choice is DEFAULT_FRIEND_NUMBER
+    choice_number = DEFAULT_FRIEND_NUMBER
     # but if total friend is less than 5, the choice number becomes total friend number
-    if len(friends) < 5:
+    if len(friends) < DEFAULT_FRIEND_NUMBER:
         choice_number = len(friends)
     friend_indexes = random.sample(range(0, len(friends)), choice_number)
     friends = [friends[i] for i in friend_indexes]
@@ -131,4 +134,4 @@ def save_talen_poll(request, skill, userId):
     profile.save()
 
     # redirecting to post page
-    return redirect("/profiles/profile/{user.id}")
+    return redirect(f"/profiles/profile/{user.id}")
