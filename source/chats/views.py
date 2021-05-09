@@ -62,6 +62,7 @@ def message_create_list_view(request, to_user_id):
 def user_list_view(request):
     """
     This method will show all available users. Clicking any user will redirect to the chat inbox page.
+    
     :param request: used to generate responses(Http) depending on the request that it receives
     :return: returns chat page
     """

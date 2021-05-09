@@ -42,9 +42,11 @@ INSTALLED_APPS = [
     'posts',
     'jackpot',
     'payment',
-    'find'
-    'profiles'
+    'find',
+    'profiles',
     'friendship',
+    'chat',
+    'account',
 
     'account.apps.AccountConfig',
 ]

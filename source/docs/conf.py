@@ -21,8 +21,8 @@ django.setup()
 # -- Project information -----------------------------------------------------
 
 project = 'main'
-copyright = '2021, Fatema'
-author = 'Fatema'
+copyright = '2021, Simon'
+author = 'Simon'
 
 
 # -- General configuration ---------------------------------------------------

@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>chats.views &#8212; main  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for chats.views</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+
+<span class="kn">from</span> <span class="nn">django.contrib.auth.decorators</span> <span class="kn">import</span> <span class="n">login_required</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+
+
+
+<div class="viewcode-block" id="message_create_list_view"><a class="viewcode-back" href="../../modules/chats.html#chats.views.message_create_list_view">[docs]</a><span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">message_create_list_view</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">to_user_id</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This method will create a post request on one form. it will add a chat entry for successful post.</span>
+<span class="sd">    This method will also show the list of chats with the specific person</span>
+<span class="sd">    This method will only load this page if the user is logged in.</span>
+
+<span class="sd">    :param request - used to generate responses(Http) depending on the request that it receives</span>
+<span class="sd">    :param to_user_id - this variable contains the receiver user id (to whom the user is interested</span>
+<span class="sd">     to send message).</span>
+<span class="sd">    :param : HttpResponse</span>
+<span class="sd">    :return: returns chat page</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">chat_form</span> <span class="o">=</span> <span class="n">ChatModelForm</span><span class="p">()</span>
+    <span class="n">from_user</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span>
+    <span class="n">to_user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">to_user_id</span><span class="p">)</span>
+
+    <span class="n">chats</span> <span class="o">=</span> <span class="n">Chat</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+        <span class="n">from_user_id__in</span><span class="o">=</span><span class="p">[</span>
+            <span class="n">from_user</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+            <span class="n">to_user_id</span>
+        <span class="p">],</span>
+        <span class="n">to_user_id__in</span><span class="o">=</span><span class="p">[</span>
+            <span class="n">from_user</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+            <span class="n">to_user_id</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="s1">&#39;submit_chat_form&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;from_user_id&#39;</span><span class="p">:</span> <span class="n">from_user</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+            <span class="s1">&#39;to_user_id&#39;</span><span class="p">:</span> <span class="n">to_user_id</span><span class="p">,</span>
+            <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">),</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;message&quot;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">()</span>
+        <span class="n">chat_object</span> <span class="o">=</span> <span class="n">Chat</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+            <span class="o">**</span><span class="n">data</span>
+        <span class="p">)</span>
+
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;chats&#39;</span><span class="p">:</span> <span class="n">chats</span><span class="p">,</span>
+        <span class="s1">&#39;chat_form&#39;</span><span class="p">:</span> <span class="n">chat_form</span><span class="p">,</span>
+        <span class="s1">&#39;to_user&#39;</span><span class="p">:</span> <span class="n">to_user</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;chats/main.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="user_list_view"><a class="viewcode-back" href="../../modules/chats.html#chats.views.user_list_view">[docs]</a><span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">user_list_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This method will show all available users. Clicking any user will redirect to the chat inbox page.</span>
+
+<span class="sd">    :param request: used to generate responses(Http) depending on the request that it receives</span>
+<span class="sd">    :return: returns chat page</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">users</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">exclude</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;username&quot;</span><span class="p">)</span>
+
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;users&#39;</span><span class="p">:</span> <span class="n">users</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;chats/user_list.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">main</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/main.html">Main</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/account.html">Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/profiles.html">Profiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/posts.html">Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/jackpot.html">Jackpot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/chats.html">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/friendship.html">Friendship</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/payment.html">Payment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/find.html">Find</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Simon.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

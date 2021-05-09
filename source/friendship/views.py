@@ -11,11 +11,14 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 @login_required
 def invites_received_view(request):
-''' This function will redirect the my_invites page.If profile = request user then add the profile in invite list 
-:param name: request - it generates the response(HTTP)
-:param type: HttpResponse
-:return: returns a signal
- '''
+    """ 
+    This function will redirect the my_invites page.If profile = request user then add the profile in invite list.
+
+    :param name: request - it generates the response(HTTP)
+    :param type: HttpResponse
+    :return: returns a signal
+
+    """
     profile = Profile.objects.get(user=request.user)
     qs = Relationship.objects.invatations_received(profile)
     results = list(map(lambda x: x.sender, qs))
@@ -34,21 +37,16 @@ def invites_received_view(request):
 
 @login_required
 def accept_invatation(request):
+    """
 
-'''
-
-This function will redirect the URL of my-invites-view.
-This function will save the sender and receiver profile if the status is accepted.
-:param name: request - it generates the response(HTTP)
-:param type: HttpResponse
-:return: returns an URL
-
-
-
-'''
-
-
-
+    This function will redirect the URL of my-invites-view.
+    This function will save the sender and receiver profile if the status is accepted.
+    
+    :param name: request - it generates the response(HTTP)
+    :param type: HttpResponse
+    :return: returns an URL
+    
+    """
     if request.method=="POST":
         pk = request.POST.get('profile_pk')
         sender = Profile.objects.get(pk=pk)
@@ -64,10 +62,14 @@ This function will save the sender and receiver profile if the status is accepte
 @login_required
 def reject_invatation(request):
 
-''' This function will redirect the URL of my-invites-view if the status is rejected.
-'''
+    """ 
+    This function will redirect the URL of my-invites-view if the status is rejected.
 
+    :param name: request - it generates the response(HTTP)
+    :param type: HttpResponse
+    :return: returns an URL
 
+    """
     if request.method=="POST":
         pk = request.POST.get('profile_pk')
         receiver = Profile.objects.get(user=request.user)
@@ -78,10 +80,20 @@ def reject_invatation(request):
 
 
 # This function will redirect the profile_list page.
-# If user = request user then will add it to profile_list.
-  
+# If user = request user then will add it to profile_list.  
 @login_required
 def profiles_list_view(request):
+    """ 
+    This function will redirect the profile_list page.
+    If user = request user then will add it to profile_list.
+
+    :param name: request - it generates the response(HTTP)
+    :param type: HttpResponse
+    :return: returns an URL
+
+    """
+
+
     user = request.user
     qs = Profile.objects.get_all_profiles(user)
 
@@ -99,6 +111,15 @@ class ProfileDetailView(LoginRequiredMixin, DetailView):
 # This method functionality is pass the sender and user profile in the database through context.
 
     def get_context_data(self, **kwargs):
+        """
+        This method functionality is pass the sender and user profile in the database through context.
+
+        :param name: self - used to access the attributes and methods of the class in python
+        :param type: reference
+        :param name: **kwargs - used to pass key-value parameters to the function
+        :param type: pass variable
+        :return: str
+        """
         context = super().get_context_data(**kwargs)
         user = User.objects.get(username__iexact=self.request.user)
         profile = Profile.objects.get(user=user)
@@ -119,6 +140,10 @@ class ProfileDetailView(LoginRequiredMixin, DetailView):
 #class based view
 
 class ProfileListView(LoginRequiredMixin, ListView):
+    """
+    class based view. 
+
+    """
     model = Profile
     template_name = 'profiles/profile_list.html'
     # context_object_name = 'qs'
@@ -126,13 +151,14 @@ class ProfileListView(LoginRequiredMixin, ListView):
 
 
     def get_queryset(self):
-    ''' this method will set pass the quertset in   the database.
-    :param name: self - used to access the  
-    attributes and methods of the class in python
-     
-    :param type: reference
-    :return: query set
-    '''
+        """
+        this method will set pass the quertset in   the database.
+
+        :param name: self - used to access the attributes and methods of the class in python
+        :param type: reference
+        :return: query set
+
+        """
 
 
 
@@ -140,6 +166,15 @@ class ProfileListView(LoginRequiredMixin, ListView):
         return qs
 
     def get_context_data(self, **kwargs):
+        """
+        This method functionality is pass the sender and user profile in the database through context.
+
+        :param name: self - used to access the attributes and methods of the class in python
+        :param type: reference
+        :param name: **kwargs - used to pass key-value parameters to the function
+        :param type: pass variable
+        :return: str
+        """
         context = super().get_context_data(**kwargs)
         user = User.objects.get(username__iexact=self.request.user)
         profile = Profile.objects.get(user=user)
@@ -163,6 +198,14 @@ class ProfileListView(LoginRequiredMixin, ListView):
 
 @login_required
 def send_invatation(request):
+    """ 
+    This function will redirect the url of my-profile-view when a request will be sent. 
+
+    :param name: request - it generates the response(HTTP)
+    :param type: HttpResponse
+    :return: returns an URL
+
+    """
     if request.method=='POST':
         pk = request.POST.get('profile_pk')
         user = request.user
@@ -178,6 +221,14 @@ def send_invatation(request):
     
 @login_required
 def remove_from_friends(request):
+    """ 
+    This func will redirect the url of my-profile-view when a friend will be removed. 
+
+    :param name: request - it generates the response(HTTP)
+    :param type: HttpResponse
+    :return: returns an URL
+
+    """
     if request.method=='POST':
         pk = request.POST.get('profile_pk')
         user = request.user

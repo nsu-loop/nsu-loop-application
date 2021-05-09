@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat &#8212; main  documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Friendship" href="friendship.html" />
+    <link rel="prev" title="Jackpot" href="jackpot.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-chats.views">
+<span id="chat"></span><h1>Chat<a class="headerlink" href="#module-chats.views" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="chats.views.message_create_list_view">
+<code class="sig-prename descclassname"><span class="pre">chats.views.</span></code><code class="sig-name descname"><span class="pre">message_create_list_view</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_user_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chats/views.html#message_create_list_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chats.views.message_create_list_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method will create a post request on one form. it will add a chat entry for successful post.
+This method will also show the list of chats with the specific person
+This method will only load this page if the user is logged in.</p>
+<p>:param request - used to generate responses(Http) depending on the request that it receives
+:param to_user_id - this variable contains the receiver user id (to whom the user is interested</p>
+<blockquote>
+<div><p>to send message).</p>
+</div></blockquote>
+<p>:param : HttpResponse
+:return: returns chat page</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="chats.views.user_list_view">
+<code class="sig-prename descclassname"><span class="pre">chats.views.</span></code><code class="sig-name descname"><span class="pre">user_list_view</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chats/views.html#user_list_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chats.views.user_list_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method will show all available users. Clicking any user will redirect to the chat inbox page.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>request</strong> – used to generate responses(Http) depending on the request that it receives</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>returns chat page</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">main</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="main.html">Main</a></li>
+<li class="toctree-l1"><a class="reference internal" href="account.html">Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="profiles.html">Profiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="posts.html">Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jackpot.html">Jackpot</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Chat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="friendship.html">Friendship</a></li>
+<li class="toctree-l1"><a class="reference internal" href="payment.html">Payment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="find.html">Find</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="jackpot.html" title="previous chapter">Jackpot</a></li>
+      <li>Next: <a href="friendship.html" title="next chapter">Friendship</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Simon.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/modules/chats.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

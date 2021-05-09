@@ -10,7 +10,15 @@ Welcome to main's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   modules/main.rst 
+   modules/account.rst 
    modules/profiles.rst 
+   modules/posts.rst 
+   modules/jackpot.rst 
+   modules/chats.rst 
+   modules/friendship.rst 
+   modules/payment.rst 
+   modules/find.rst 
 
 
 Indices and tables
