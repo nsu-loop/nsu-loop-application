@@ -1,12 +1,20 @@
-import random
-from django.test import TestCase
-from django.test.client import Client
-from profiles.models import *
+import pytest
+
+from django.urls import reverse, resolve
 
 
-class TalentPollTest(TestCase):
+class TestUrls:
 
-    # prepare setup for testing. It is a framework defined method.
+    # This method will test of the right talent poll url
+    def test_talent_poll_url(self):
+        path = reverse('talent-poll')
+
+        assert resolve(path).view_name == 'talent-poll'
+
+
+class TestTalentPollFeature(TestCase):
+
+    # Prepare setup for testing. It is a framework defined method.
     # The method name has to be setUp(), otherwise it will not work.
     def setUp(self):
         Skill.objects.create(name="c++")
